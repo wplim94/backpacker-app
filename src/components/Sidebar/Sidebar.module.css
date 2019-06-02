@@ -11,5 +11,11 @@
     width: 100%;
     height: 80px;
     font-size: 1.5em;
-    background-color: #bedaea;
+    border: none;
+    background-color: #e2f5ff;
+    outline: none;
+}
+
+.is-active button {
+    background-color: rgb(165, 212, 237);
 }
