@@ -1,0 +1,48 @@
+.form {
+    background: white;
+    padding: 40px 30px;
+    margin: 0;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+      
+}
+.input{
+    height: 50px;
+    width: 400px;
+    border: solid 1px black;
+    font-size: 1.2em;
+    padding: 0 20px;
+    border: 1px solid #dfe1e5;
+    box-shadow: none;
+    outline: none;
+    border-radius: 24px;
+}
+
+.input:hover{
+    box-shadow: 0 1px 6px 0 rgba(32,33,36,0.28);
+    border-color: rgba(223,225,229,0);
+}
+
+.btn-add-plan{
+    cursor: pointer;
+    margin-top: 50px;
+    font-size: 1.2em;
+    height: 50px;
+    width: 400px;
+    box-shadow: none;
+    outline: none;
+    border-radius: 24px;
+    background-color: cornflowerblue;
+    color: white;
+}
+
+.btn-add-plan:hover{
+    background-color: rgb(72, 117, 201);
+}
+
+.btn-add-plan:active{
+    font-weight: bold;
+}
