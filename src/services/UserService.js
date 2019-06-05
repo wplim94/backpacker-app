@@ -3,7 +3,7 @@ export const getUser = () => {
       setTimeout(() => {
         const userData = {
           name: 'Ping',
-          imgUrl: 'https://images.pexels.com/photos/1619690/pexels-photo-1619690.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=200'
+          imgUrl: 'https://cdn.pixabay.com/photo/2016/11/18/23/38/child-1837375_1280.png'
         };
         resolve(userData)
       }, 750);

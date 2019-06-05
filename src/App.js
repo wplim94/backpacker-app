@@ -6,33 +6,39 @@ import SchedulePage from './pages/SchedulePage';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Sidebar from './components/Sidebar';
 import { getUser } from './services/UserService'
-import { statement } from '@babel/template';
+import UserContext from "./userContext"
+
+
 
 function App() {
-  const [name, setName] = useState(null)
-
   const [user, setUser] = useState(null)
 
   useEffect(() => {
     getUser().then((res) => {
-      console.log(res)
+      console.log('USER first',res)
       setUser(res)
       localStorage.setItem('username', res.name)
     })
   },[])
 
   return (
+    <UserContext.Provider value={user}>
     <div className="App">
       <Router>
-      <Sidebar name={user ? user.name : 'Loading...'} img={ user && user.imgUrl} />
-      <div>
-        <Route path="/" exact render={props => <CreatePage {...props} title={`Hi, ${user.name}!`} /> }/>
-        <Route path="/create/" render={props => <CreatePage {...props} title={ user && `Hi, ${user.name}!`} /> }/>
-        <Route path="/schedule/" render={props => <SchedulePage {...props} title='Schedule Page' /> }/>
-        <Route path="/connect/" render={props => <ConnectPage {...props} title='Connect Page' /> }/>
+      <Sidebar />
+      <div className="page">
+        <div className="page-content">
+          <Route path="/" exact render={props => <CreatePage {...props} title={ user && `Hi, ${user.name}!`} /> }/>
+          <Route path="/create/" render={props => <CreatePage {...props} title={ user && `Hi, ${user.name}!`} /> }/>
+          <Route path="/schedule/" render={props => <SchedulePage {...props} title='Schedule Page' /> }/>
+          <Route path="/connect/" render={props => <ConnectPage {...props} title='Connect Page' /> }/>
+        </div>
       </div>
     </Router>
     </div>
+
+    </UserContext.Provider>
+
   );
 }
 
